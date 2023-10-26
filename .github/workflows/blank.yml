@@ -1,17 +1,17 @@
-name: 'GitHub Actions Mirror'
+name: 'GitHub Syn'
 
 on: [push]
 
 jobs:
-  mirror_to_gitee:
+  mirror_to_github:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v1
-      - name: 'Mirror to gitee'
+      - name: 'Mirror to github'
         uses: pixta-dev/repository-mirroring-action@v1
         with:
           target_repo_url:
-            git@github.com:annoroad/anno_papaer.git
+            git@github.com:seqyuan/anno_papaer.git
           ssh_private_key:
             ${{ secrets.GIT_SYN_KEY }}
