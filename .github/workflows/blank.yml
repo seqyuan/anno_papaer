@@ -14,4 +14,4 @@ jobs:
           target_repo_url:
             git@github.com:annoroad/anno_papaer.git
           ssh_private_key:
-            ${{ secrets.GITEE_SYN_KEY }}
+            ${{ secrets.GIT_SYN_KEY }}
