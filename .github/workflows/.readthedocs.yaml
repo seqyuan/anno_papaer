@@ -10,7 +10,7 @@ build:
     # rust: "1.70"
     # golang: "1.20"
   commands:
-    - git clone git@github.com:seqyuan/sphinxbook.git
+    - git clone https://github.com/seqyuan/sphinxbook.git
     - mv sphinxbook/docs/* docs/
 
 # Build documentation in the "docs/" directory with Sphinx
