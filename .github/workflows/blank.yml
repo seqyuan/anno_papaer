@@ -20,9 +20,21 @@ jobs:
             git@github.com:seqyuan/anno_papaer.git
           ssh_private_key:
             ${{ secrets.GIT_SYN_KEY }}
-      - name: deploy
+
+      - name: Setup Deploy Private Key
         env:
-          ACCESS_TOKEN: ${{ secrets.GIT_SYN_KEY }}
+          ACTION_DEPLOY_KEY: ${{ secrets.GIT_SYN_KEY }}  # 这里是上面anno-sc.github.io新增的公钥：HEXO_DEPLOY_KEY
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$ACTION_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          
+      - name: Setup Git Infomation # set git infomation
+        run: |
+          git config --global user.name 'seqyuan'
+          git config --global user.email 'ahworld07@gmail.com'
+      - name: deploy
         run: |
           git clone https://github.com/seqyuan/sphinxbook.git
           #git clone https://github.com/seqyuan/anno_papaer.git
