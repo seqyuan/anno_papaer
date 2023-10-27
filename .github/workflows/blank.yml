@@ -41,4 +41,4 @@ jobs:
           git remote add target https://github.com/seqyuan/paper_pages.git
           git add -A
           git commit -m "..."
-          git push origin gh-pages
+          git push origin main
