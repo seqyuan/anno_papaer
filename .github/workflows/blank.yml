@@ -25,11 +25,11 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.GIT_SYN_KEY }}
         run: |
           git clone https://github.com/seqyuan/sphinxbook.git
-          git clone https://github.com/seqyuan/anno_papaer.git
-          mv sphinxbook/docs/* ./docs
+          #git clone https://github.com/seqyuan/anno_papaer.git
+          cp -r sphinxbook/docs/* ./docs
           rm -r sphinxbook
-          mv anno_papaer/docs/* ./docs
-          rm -r anno_papaer
+          #cp -r anno_papaer/docs/* ./docs
+          #rm -r anno_papaer
           git remote add target https://github.com/seqyuan/paper_pages.git
           git add -A
           git commit -m "..."
