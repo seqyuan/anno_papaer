@@ -29,7 +29,6 @@ jobs:
           echo "$ACTION_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
-          
       - name: Setup Git Infomation # set git infomation
         run: |
           git config --global user.name 'seqyuan'
@@ -37,11 +36,8 @@ jobs:
       - name: deploy
         run: |
           git clone https://github.com/seqyuan/sphinxbook.git
-          #git clone https://github.com/seqyuan/anno_papaer.git
           cp -r sphinxbook/docs/* ./docs
           rm -r sphinxbook
-          #cp -r anno_papaer/docs/* ./docs
-          #rm -r anno_papaer
           git remote add target https://github.com/seqyuan/paper_pages.git
           git add -A
           git commit -m "..."
