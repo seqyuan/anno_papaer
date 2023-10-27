@@ -8,19 +8,10 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v1
-      - name: 'conf'
-        run: |
-          git clone https://github.com/seqyuan/sphinxbook.git
-          mv sphinxbook/docs/* docs/
-          rm -r sphinxbook
-          git add -A
-          git commit -m "..."
       - name: 'Mirror to github'
-        uses: pixta-dev/repository-mirroring-action@v1
+        uses: pages-action@v1
         with:
           target_repo_url:
             git@github.com:seqyuan/anno_papaer.git
           ssh_private_key:
             ${{ secrets.GIT_SYN_KEY }}
-
-      
