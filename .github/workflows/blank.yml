@@ -9,7 +9,7 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v1
       - name: 'Mirror to github'
-        uses: pages-action@v1
+        uses: seqyuan/pages-action@v1
         with:
           target_repo_url:
             git@github.com:seqyuan/anno_papaer.git
