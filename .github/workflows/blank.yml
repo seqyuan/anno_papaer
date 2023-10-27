@@ -26,7 +26,8 @@ jobs:
         run: |
           git clone https://github.com/seqyuan/sphinxbook.git
           git clone https://github.com/seqyuan/anno_papaer.git
-          mv sphinxbook/docs ./
+          mkdir docs
+          mv sphinxbook/docs/* ./docs
           rm -r sphinxbook
           mv anno_papaer/docs/* ./docs
           rm -r anno_papaer
